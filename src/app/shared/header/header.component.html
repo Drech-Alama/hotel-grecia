@@ -1,0 +1,30 @@
+<header class="bg-blue-400 fixed w-full z-10 text-white ">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+
+        <!-- Logo -->
+        <a routerLink="/" class="text-2xl font-bold"><img src="logoHotelGrecia.png" alt="" class="w-60"></a>
+
+        <!-- Botón hamburguesa (solo en mobile) -->
+        <button (click)="toggleMenu()" class="md:hidden text-white focus:outline-none cursor-pointer">
+            <!-- Puedes reemplazar este SVG por un icono si luego lo deseas -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+
+        <!-- Menú desktop -->
+        <nav class="hidden md:flex items-center gap-6 font-medium">
+            <a routerLink="/" class="transition-colors duration-200 hover:text-blue-700">Inicio</a>
+            <a routerLink="/nosotros" class="transition-colors duration-200 hover:text-blue-700">Nosotros</a>
+            <a routerLink="/servicios" class="transition-colors duration-200 hover:text-blue-700">Servicios</a>
+        </nav>
+    </div>
+
+    <!-- Menú móvil -->
+    <div *ngIf="isMenuOpen" class="md:hidden px-4 pb-4 space-y-2 font-medium bg-gray-800 text-white">
+        <a routerLink="/" (click)="closeMenu()" class="block py-5 hover:text-blue-400">Inicio</a>
+        <a routerLink="/nosotros" (click)="closeMenu()" class="block py-5 hover:text-blue-400">Nosotros</a>
+        <a routerLink="/servicios" (click)="closeMenu()" class="block py-5 hover:text-blue-400">Servicios</a>
+    </div>
+</header>
